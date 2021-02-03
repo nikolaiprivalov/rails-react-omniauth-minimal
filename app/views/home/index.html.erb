@@ -1,1 +1,16 @@
-<p> HOME VIEW </p>
+<h5> RAILS VIEW </h5>
+
+<p>current user: <%= current_user&.email || 'none' %></p>
+<hr>
+
+<div>
+  <h5> RAILS OMNIAUTH:
+    <% if current_user.present? %>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+    <% end %>
+  </h5>
+</div>
+
+<hr>
